@@ -1,0 +1,78 @@
+{% extends 'master.html' %}
+
+{% block content %}
+
+    <div class="container">
+      <div class="py-5 text-center">
+        <img class="d-block mx-auto mb-4" src="https://getbootstrap.com/docs/4.0/assets/brand/bootstrap-solid.svg" alt="" width="72" height="72">
+        <h2>Checkout form</h2>
+        <p class="lead">Below is an example form built entirely with Bootstrap's form controls. Each required form group has a validation state that can be triggered by attempting to submit the form without completing it.</p>
+
+        {% for message in get_flashed_messages() %}
+          <p>{{ message }}</p>
+        {% endfor %}
+      </div>
+
+      <div class="row">
+        
+        <div class="col-md-8 order-md-1">
+          <h4 class="mb-3">Add entry</h4>
+          <form class="needs-validation" novalidate method="post">
+
+            <div class="mb-3">
+              <label for="description">ID</label>
+              <input type="id" name="id" value="{{item['id']}}" class="form-control" id="id" disabled="">
+            </div>
+
+            <div class="mb-3">
+              <label for="item_name">Item name</label>
+              <div class="input-group">
+                <input type="text" name="item_name" value="{{item['item_name']}}" class="form-control" required>
+                <div class="invalid-feedback" style="width: 100%;">
+                  Your item name is required.
+                </div>
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="description">Description</label>
+              <input type="text" name="description" value="{{item['description']}}" class="form-control" id="description" required>
+            </div>
+
+            <div class="mb-3">
+              <label for="amount">Amount</label>
+              <input type="text" name="amount" value="{{item['amount']}}" class="form-control" id="amount" required>
+              <div class="invalid-feedback">
+                Please enter your amount.
+              </div>
+            </div>
+
+            <div class="mb-3">
+              <label for="category">Category</span></label>
+              <select name="category" value="{{item['category']}}">
+                <option>Food</option>
+                <option>Drinks</option>
+                <option>Toiletries</option>
+                <option>Candies</option>
+                <option>Personal Care</option>
+              </select>
+            </div>
+
+            <hr class="mb-4">
+            <button class="btn btn-primary btn-lg btn-block" type="submit">Submit</button>
+          </form>
+        </div>
+      </div>
+
+      <footer class="my-5 pt-5 text-muted text-center text-small">
+        <p class="mb-1">&copy; 2017-2018 Company Name</p>
+        <ul class="list-inline">
+          <li class="list-inline-item"><a href="#">Privacy</a></li>
+          <li class="list-inline-item"><a href="#">Terms</a></li>
+          <li class="list-inline-item"><a href="#">Support</a></li>
+        </ul>
+      </footer>
+    </div>
+
+
+{% endblock %}

@@ -1,0 +1,10 @@
+DROP TABLE IF EXISTS list;
+
+CREATE TABLE list (
+    id INTEGER PRIMARY KEY AUTOINCREMENT,
+    item_name TEXT NOT NULL,
+    amount INTEGER NOT NULL DEFAULT 0,
+    description TEXT,
+    date_created TIMESTAMP NOT NULL DEFAULT CURRENT_TIMESTAMP,
+    category TEXT NOT NULL
+);
